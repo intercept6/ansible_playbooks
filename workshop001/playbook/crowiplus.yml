@@ -1,0 +1,15 @@
+---
+- name: crowiplus
+  hosts: crowiplus
+  become: true
+
+  vars_files:
+    - ../../common_roles/vars/common.yml
+  roles:
+    - ../../common_roles/roles/hostname
+    - ../../common_roles/roles/selinux
+    - ../../common_roles/roles/firewalld
+    - ../../common_roles/roles/epel
+    - { role: ../../common_roles/roles/chrony, ntp_server1: "ntp1.kensho.local", ntp_server2: "ntp2.kensho.local", ntp_server3: "ntp3.kensho.local" }
+    - ../../common_roles/roles/nodejs
+    - ../../common_roles/roles/crowiplus

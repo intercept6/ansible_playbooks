@@ -1,0 +1,17 @@
+---
+- name: elasticsearch
+  hosts: elasticsearch
+  become: true
+
+  vars_files:
+    - ../../common_roles/vars/common.yml
+  roles:
+    - ../../common_roles/roles/hostname
+    - ../../common_roles/roles/selinux
+    - ../../common_roles/roles/firewalld
+    - ../../common_roles/roles/epel
+    - ../../common_roles/roles/chrony
+    - ../../common_roles/roles/oraclejdk8
+    - ../../common_roles/roles/elasticsearch
+    - ../../common_roles/roles/es-plugin-analysis-icu
+    - ../../common_roles/roles/es-plugin-analysis-kuromoji

@@ -1,0 +1,12 @@
+---
+ntp_server1: ntp1.jst.mfeed.ad.jp
+ntp_server2: ntp2.jst.mfeed.ad.jp
+ntp_server3: ntp3.jst.mfeed.ad.jp
+
+mongodb_admin_username: admin
+mongodb_admin_userpassword: admin
+
+elasticsearch_major_version: 5
+
+java8_rpm_filename: jdk-8u151-linux-x64.rpm
+#mongodb_bind_ip: 0.0.0.0

@@ -1,0 +1,18 @@
+---
+[crowiplus]
+crowiplus-srv ansible_host=192.168.33.10
+
+[mongodb]
+mongodb-srv ansible_host=192.168.33.11
+
+[redis]
+redis-srv ansible_host=192.168.33.12
+
+[elasticsearch]
+elasticsearch-srv ansible_host=192.168.33.13
+
+[local:children]
+mongodb
+crowiplus
+redis
+elasticsearch

@@ -1,0 +1,14 @@
+---
+- name: redis
+  hosts: redis
+  become: true
+
+  vars_files:
+    - ../../common_roles/vars/common.yml
+  roles:
+    - ../../common_roles/roles/hostname
+    - ../../common_roles/roles/selinux
+    - ../../common_roles/roles/firewalld
+    - ../../common_roles/roles/epel
+    - ../../common_roles/roles/chrony
+    - ../../common_roles/roles/redis

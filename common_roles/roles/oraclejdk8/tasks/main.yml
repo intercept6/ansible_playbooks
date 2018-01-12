@@ -1,0 +1,10 @@
+---
+- name: copy oraclejdk8 rpm
+  copy:
+    src: "{{  java8_rpm_filename  }}"
+    dest: /usr/local/src
+
+- name: install oraclejdk8
+  yum:
+    name: "/usr/local/src/{{  java8_rpm_filename  }}"
+    state: present

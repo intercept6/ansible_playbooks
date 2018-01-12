@@ -1,0 +1,5 @@
+---
+- import_playbook: mongodb.yml
+- import_playbook: crowiplus.yml
+- import_playbook: redis.yml
+- import_playbook: elasticsearch.yml
