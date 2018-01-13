@@ -1,0 +1,6 @@
+---
+mongodb_admin_username: admin
+mongodb_admin_userpassword: admin
+
+mongodb_port: 27017
+mongodb_bind_ip: 127.0.0.1
