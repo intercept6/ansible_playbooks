@@ -1,10 +1,13 @@
 ---
-- name: copy oraclejdk8 rpm
-  copy:
-    src: "{{  java8_rpm_filename  }}"
-    dest: /usr/local/src
+- name: download oraclejdk8
+  get_url:
+    url: "{{  oraclejdk8_url  }}"
+    dest: "/usr/local/src/{{  oraclejdk8_binary_name  }}"
+    headers: "Cookie:' gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'"
+    validate_certs: no
+    checksum: "{{  oraclejdk8_binary_checksum  }}"
 
 - name: install oraclejdk8
   yum:
-    name: "/usr/local/src/{{  java8_rpm_filename  }}"
+    name: "/usr/local/src/{{  oraclejdk8_binary_name  }}"
     state: present
