@@ -10,6 +10,6 @@
     - ../../common_roles/roles/selinux
     - ../../common_roles/roles/firewalld
     - ../../common_roles/roles/epel
-    - { role: ../../common_roles/roles/chrony, ntp_server1: "ntp1.kensho.local", ntp_server2: "ntp2.kensho.local", ntp_server3: "ntp3.kensho.local" }
+    - ../../common_roles/roles/chrony
     - ../../common_roles/roles/nodejs
     - ../../common_roles/roles/crowiplus
