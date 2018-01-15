@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "crowiplus" do |crowiplus|
     crowiplus.vm.hostname = "crowiplus"
     crowiplus.ssh.insert_key = false
-    crowiplus.vm.network "private_network", ip: "192.168.33.10"
+    crowiplus.vm.network "private_network", ip: "192.168.56.10"
     crowiplus.vm.provision "ansible" do |ansible|
       #ansible.verbose = "vvvv"
       ansible.limit = "all"
@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "mongodb" do |mongodb|
     mongodb.vm.hostname = "mongodb"
     mongodb.ssh.insert_key = false
-    mongodb.vm.network "private_network", ip: "192.168.33.11"
+    mongodb.vm.network "private_network", ip: "192.168.56.11"
     mongodb.vm.provision "ansible" do |ansible|
       #ansible.verbose = "vvvv"
       ansible.limit = "all"
@@ -29,7 +29,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "redis" do |redis|
     redis.vm.hostname = "redis"
     redis.ssh.insert_key = false
-    redis.vm.network "private_network", ip: "192.168.33.12"
+    redis.vm.network "private_network", ip: "192.168.56.12"
     redis.vm.provision "ansible" do |ansible|
       #ansible.verbose = "vvvv"
       ansible.limit = "all"
@@ -41,7 +41,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "elasticsearch" do |elasticsearch|
     elasticsearch.vm.hostname = "elasticsearch"
     elasticsearch.ssh.insert_key = false
-    elasticsearch.vm.network "private_network", ip: "192.168.33.13"
+    elasticsearch.vm.network "private_network", ip: "192.168.56.13"
     elasticsearch.vm.provision "ansible" do |ansible|
       #ansible.verbose = "vvvv"
       ansible.limit = "all"

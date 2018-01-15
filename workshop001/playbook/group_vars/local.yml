@@ -10,17 +10,17 @@ mongodb_crowi_user: crowi
 mongodb_crowi_user_password: crowi
 mongodb_crowi_database: crowi
 
-mongodb_host: 192.168.33.11
+mongodb_host: 192.168.56.11
 mongodb_port: 27017
-mongodb_bind_ip: 127.0.0.1,192.168.33.11
+mongodb_bind_ip: 127.0.0.1,192.168.56.11
 
-redis_host: 192.168.33.12
+redis_host: 192.168.56.12
 redis_port: 6379
-redis_bind_ip: "127.0.0.1 192.168.33.12"
+redis_bind_ip: "127.0.0.1 192.168.56.12"
 redis_database: crowi
 
-elasticsearch_host: 192.168.33.13
+elasticsearch_host: 192.168.56.13
 elasticsearch_port: 9200
-elasticsearch_bind_ip: 127.0.0.1,192.168.33.13
+elasticsearch_bind_ip: 127.0.0.1,192.168.56.13
 
 #nodejs_version: 4.8.6-1
