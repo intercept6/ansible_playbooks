@@ -1,0 +1,40 @@
+# file: Vagrantfile
+Vagrant.configure(2) do |config|
+  config.vm.box = "bento/centos-7.4"
+
+  config.vm.define "crowiplus" do |crowiplus|
+    crowiplus.vm.hostname = "crowiplus"
+    crowiplus.ssh.insert_key = false
+    crowiplus.vm.network "private_network", ip: "192.168.56.10"
+  end
+
+  config.vm.define "mongodb" do |mongodb|
+    mongodb.vm.hostname = "mongodb"
+    mongodb.ssh.insert_key = false
+    mongodb.vm.network "private_network", ip: "192.168.56.11"
+  end
+
+  config.vm.define "redis" do |redis|
+    redis.vm.hostname = "redis"
+    redis.ssh.insert_key = false
+    redis.vm.network "private_network", ip: "192.168.56.12"
+  end
+
+  config.vm.define "elasticsearch" do |elasticsearch|
+    elasticsearch.vm.hostname = "elasticsearch"
+    elasticsearch.ssh.insert_key = false
+    elasticsearch.vm.network "private_network", ip: "192.168.56.13"
+  end
+
+  config.vm.define 'controller' do |controller|
+  controller.vm.network "private_network", ip: "192.168.56.5"
+  controller.vm.provision :ansible_local do |ansible|
+      ansible.playbook       = "./playbook/site.yml"
+      ansible.verbose        = true
+      ansible.install        = true
+      ansible.limit          = "all" # or only "nodes" group, etc.
+      ansible.inventory_path = "./playbook/hosts/local"
+    end
+  end
+
+end

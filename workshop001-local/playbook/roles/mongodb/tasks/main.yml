@@ -1,0 +1,12 @@
+---
+- name: mongod add user crowi
+  mongodb_user:
+    login_user: "{{  mongodb_admin_username  }}"
+    login_password: "{{ mongodb_admin_userpassword }}"
+    database: "{{ mongodb_crowi_database }}"
+    name: "{{ mongodb_crowi_user }}"
+    password: "{{ mongodb_crowi_user_password }}"
+    update_password: on_create
+    roles:
+    - { db: "{{mongodb_crowi_database}}", role: 'readWrite'}
+    state: present

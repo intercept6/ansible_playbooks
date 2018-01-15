@@ -1,0 +1,17 @@
+---
+- name: Disable SELinux
+  selinux:
+    state: disabled
+
+- name: Reboot. If SELinux status is not disable
+  shell: sleep 2 && shutdown -r now "reboot"
+  become: yes
+  async: 1
+  poll: 0
+  ignore_errors: true
+  when: ansible_selinux.status != "disabled"
+
+- name: Wait reboot. If SELinux status is not disable
+  local_action: wait_for host={{  ansible_host  }} port=22 delay=30 state=started
+  become: false
+  when: ansible_selinux.status != "disabled"

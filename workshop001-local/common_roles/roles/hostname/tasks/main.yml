@@ -1,0 +1,13 @@
+---
+- name: Setting hostname
+  hostname:
+    name: "{{ inventory_hostname  }}"
+
+- name: Setting Hosts
+  template:
+    src: templates/hosts.j2
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes

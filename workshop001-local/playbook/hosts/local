@@ -1,0 +1,20 @@
+---
+controller ansible_connection=local
+
+[crowiplus]
+crowiplus-srv ansible_host=192.168.56.10 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/crowiplus/virtualbox/private_key
+
+[mongodb]
+mongodb-srv ansible_host=192.168.56.11 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/mongodb/virtualbox/private_key
+
+[redis]
+redis-srv ansible_host=192.168.56.12 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/redis/virtualbox/private_key
+
+[elasticsearch]
+elasticsearch-srv ansible_host=192.168.56.13 ansible_ssh_private_key_file=/vagrant/.vagrant/machines/elasticsearch/virtualbox/private_key
+
+[local:children]
+mongodb
+crowiplus
+redis
+elasticsearch
