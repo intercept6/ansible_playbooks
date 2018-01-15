@@ -21,6 +21,6 @@ redis_database: crowi
 
 elasticsearch_host: 192.168.56.13
 elasticsearch_port: 9200
-elasticsearch_bind_ip: 127.0.0.1,192.168.56.13
+elasticsearch_bind_ip: 192.168.56.13
 
 #nodejs_version: 4.8.6-1
