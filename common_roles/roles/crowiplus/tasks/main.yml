@@ -3,7 +3,7 @@
   yum: name="@Development tools" state=present
 
 - name: Change permissions of CrowiPlus dir
-  file: path=/opt/crowiplus mode=755 state=directory owner={{ ansible_user_id }}
+  file: path=/opt/crowiplus mode=755 state=directory owner=root
 
 - name: Download CrowiPlus (git clone)
   git: repo=https://github.com/weseek/crowi-plus dest=/opt/crowiplus update=no
