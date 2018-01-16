@@ -1,4 +1,0 @@
----
-elasticsearch_major_version: 5
-elasticsearch_port: 9200
-elasticsearch_bind_ip: 127.0.0.1

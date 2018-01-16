@@ -1,4 +1,0 @@
----
-oraclejdk8_url: 'http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.rpm'
-oraclejdk8_binary_name: 'jdk-8u151-linux-x64.rpm'
-oraclejdk8_binary_checksum: 'sha256: 2c1137859aecc0a6aef8960d11967797466e9b812f8c170a43a2597e97dc8a08'

@@ -1,4 +1,0 @@
----
-- elasticsearch_plugin:
-    name: analysis-icu
-    state: present
