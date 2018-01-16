@@ -27,8 +27,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define 'controller' do |controller|
-  config.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "vagrant" , mount_options: ['dmode=600,fmode=600']
-  config.vm.synced_folder "../common_roles", "/common_roles", owner: "vagrant", group: "vagrant" , mount_options: ['dmode=600,fmode=600']
+  config.vm.synced_folder ".", "/vagrant"
+  config.vm.synced_folder "../common_roles", "/common_roles"
 
   controller.vm.network "private_network", ip: "192.168.56.5"
 
