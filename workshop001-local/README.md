@@ -62,16 +62,16 @@ ansible-playbook -i playbook/hosts/local playbook/site.yml
 
 - controllerからansible_localを実行する時に、秘密鍵のパーミッション777で警告がでる。
   - vagrantのマウント機能でパーミッションを600に制限すると何故かvagrantユーザでアクセスできなくなった...
-  ```
-    config.vm.synced_folder ".", "/vagrant", mount_options: ['dmode=600','fmode=600']
-  ```
+    ```ruby
+      config.vm.synced_folder ".", "/vagrant", mount_options: ['dmode=600','fmode=600']
+    ```
   - 事前にprovision.file,shellで秘密鍵をコピーしパーミッションを変更することで対応した
 
     ```ruby
-    controller.vm.provision "file", source: ".vagrant/machines/crowiplus/virtualbox/private_key", destination: "/home/vagrant/.ssh/crowiplus.private_key"
-    controller.vm.provision "file", source: ".vagrant/machines/mongodb/virtualbox/private_key", destination: "/home/vagrant/.ssh/mongodb.private_key"
-    controller.vm.provision "file", source: ".vagrant/machines/redis/virtualbox/private_key", destination: "/home/vagrant/.ssh/redis.private_key"
-    controller.vm.provision "file", source: ".vagrant/machines/elasticsearch/virtualbox/private_key", destination: "/home/vagrant/.ssh/elasticsearch.private_key"
+    controller.vm.provision "file", source: ".vagrant/machines/crowiplus/#{VAGRANT_PROVIDER}/private_key", destination: "/home/vagrant/.ssh/crowiplus.private_key"
+    controller.vm.provision "file", source: ".vagrant/machines/mongodb/#{VAGRANT_PROVIDER}/private_key", destination: "/home/vagrant/.ssh/mongodb.private_key"
+    controller.vm.provision "file", source: ".vagrant/machines/redis/#{VAGRANT_PROVIDER}/private_key", destination: "/home/vagrant/.ssh/redis.private_key"
+    controller.vm.provision "file", source: ".vagrant/machines/elasticsearch/#{VAGRANT_PROVIDER}/private_key", destination: "/home/vagrant/.ssh/elasticsearch.private_key"
 
     controller.vm.provision "shell", inline: <<-SHELL
       chmod 600 -R /home/vagrant/.ssh/*.private_key
