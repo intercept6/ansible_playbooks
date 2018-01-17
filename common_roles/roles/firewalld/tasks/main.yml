@@ -2,5 +2,5 @@
 - name: change firewalld state
   systemd:
     name: firewalld
-    state: {{  firewalld_state  }}
-    enabled: {{  firewalld_enabled }}
+    state: "{{  firewalld_state  }}"
+    enabled: "{{  firewalld_enabled }}"
