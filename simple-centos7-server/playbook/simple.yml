@@ -11,6 +11,7 @@
     - ../../common_roles/roles/firewalld
     - ../../common_roles/roles/epel
     - ../../common_roles/roles/chrony
+    - ../../common_roles/roles/basic_web_server
     - ../../common_roles/roles/vsftpd
 #    - ../../common_roles/roles/nodejs
 #    - ../../common_roles/roles/crowiplus
