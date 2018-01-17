@@ -1,8 +1,0 @@
----
-- name: firewalld allow http service.
-  firewalld:
-    service: http
-    permanent: true
-    state: enabled
-  notify: reload firewalld
-  ignore_errors: True

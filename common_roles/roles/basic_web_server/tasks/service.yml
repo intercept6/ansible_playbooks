@@ -1,5 +1,0 @@
----
-- name: enable service httpd and run
-  systemd:
-    name: httpd
-    enabled: yes

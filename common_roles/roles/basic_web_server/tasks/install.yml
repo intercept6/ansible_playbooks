@@ -1,3 +1,0 @@
----
-- name: Install Basic Web Server
-  yum: name='@^Basic Web Server' state=present
