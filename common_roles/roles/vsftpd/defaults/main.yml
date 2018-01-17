@@ -1,0 +1,31 @@
+---
+vsftpd_anonymous_enable: 'YES'
+vsftpd_local_enable: 'YES'
+vsftpd_write_enable: 'YES'
+vsftpd_local_umask: '022'
+vsftpd_dirmessage_enable: 'YES'
+vsftpd_xferlog_file: '/var/log/xferlog'
+vsftpd_xferlog_enable: 'YES'
+vsftpd_connect_from_port_20: 'YES'
+vsftpd_xferlog_std_format: 'YES'
+vsftpd_ascii_upload_enable: 'YES'
+vsftpd_ascii_download_enable: 'YES'
+
+vsftpd_chroot_local_user: 'YES'
+vsftpd_chroot_list_enable: 'YES'
+vsftpd_chroot_list_file:  '/etc/vsftpd/chroot_list'
+vsftpd_ls_recurse_enable: 'YES'
+
+
+vsftpd_use_ipv6: true
+# Type is boolean
+# ipv4 only: true
+# ipv4 and ipv6: false
+
+vsftpd_pam_service_name: 'vsftpd'
+vsftpd_userlist_enable: 'YES'
+vsftpd_tcp_wrappers: 'YES'
+
+
+vsftpd_use_localtime: 'YES'
+vsftpd_seccomp_sandbox: 'YES'

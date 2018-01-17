@@ -1,17 +1,35 @@
 ---
-- name: Disable SELinux
-  selinux:
-    state: disabled
+- name: install requirements packages
+  yum: name="{{ item  }}" state=present
+  with_items:
+    - libselinux-python
+    - libsemanage-python
 
-- name: Reboot. If SELinux status is not disable
+- name: change selinux state
+  selinux:
+    policy: targeted
+    state: "{{ selinux_state }}"
+  register: selinux_result
+
+- name: check autorelabel flag
+  stat: path='/.autorelabel'
+  register: autorelabel_result
+
+- name: relabel a file system flag
+  file:
+    path: /.autorelabel
+    state: touch
+  when: autorelabel_result.stat.exists is defined and not autorelabel_result.stat.exists
+
+- name: Reboot. If SELinux state is changed
   shell: sleep 2 && shutdown -r now "reboot"
   become: yes
   async: 1
   poll: 0
   ignore_errors: true
-  when: ansible_selinux.status != "disabled"
+  when: selinux_result.changed
 
-- name: Wait reboot. If SELinux status is not disable
+- name: Wait reboot. If SELinux state is changed
   local_action: wait_for host={{  ansible_host  }} port=22 delay=30 state=started
   become: false
-  when: ansible_selinux.status != "disabled"
+  when: selinux_result.changed
