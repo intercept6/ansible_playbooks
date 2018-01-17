@@ -1,0 +1,40 @@
+---
+- name: Configure postfix main.cf
+  template:
+    src: main.cf.j2
+    dest: /etc/postfix/main.cf
+  notify: restart postfix
+
+- name: Configure postfix master.cf
+  template:
+    src: master.cf.j2
+    dest: /etc/postfix/master.cf
+  notify: restart postfix
+
+- name: Configure postfix mysql configuration files
+  template:
+    src: "{{  item  }}}}.j2"
+    dest: "/etc/postfix/{{  item  }}}}"
+  notify: restart postfix
+  with_items:
+    - 'mysql_virtual_alias_maps.cf'
+    - 'mysql_virtual_domains_maps.cf'
+    - 'mysql_virtual_mailbox_limit.cf'
+    - 'mysql_virtual_mailbox_maps.cf'
+
+- name: Configure dovecot dovecot.conf
+  template:
+    src: "dovecot.conf.j2"
+    dest: "/etc/dovecot/dovecot.conf"
+  notify: restart dovecot
+
+- name: Configure dovecot configuration files
+  template:
+    src: "{{  item  }}}}.j2"
+    dest: "/etc/dovecot/conf.d/{{  item  }}}}"
+  notify: restart dovecot
+  with_items:
+    - '10-auth.conf'
+    - '10-mail.conf'
+    - '10-master.conf'
+    - '10-ssl.conf'

@@ -1,0 +1,11 @@
+---
+- name: firewalld allow mail service.
+  firewalld:
+    service: "{{  item  }}"
+    permanent: true
+    state: enabled
+  notify: reload firewalld
+  with_items:
+    - 'smtp'
+    - 'pop3'
+  ignore_errors: True

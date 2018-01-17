@@ -1,0 +1,10 @@
+---
+- name: enable service postfix and run
+  systemd:
+    name: postfix
+    enabled: yes
+
+- name: enable service dovecot and run
+  systemd:
+    name: dovecot
+    enabled: yes

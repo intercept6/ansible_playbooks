@@ -1,0 +1,9 @@
+---
+- name: Install postfix
+  yum: name=postfix state=present
+
+- name: Install dovecot
+  yum: name=dovecot state=present
+
+- name: Install dovecot-mysql
+  yum: name=dovecot-mysql state=present
