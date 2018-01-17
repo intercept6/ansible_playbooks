@@ -1,0 +1,7 @@
+---
+- name: selinux ftpd_full_access on
+  seboolean:
+    name: ftpd_full_access
+    state: yes
+    persistent: yes
+  ignore_errors: True

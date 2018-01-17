@@ -1,0 +1,8 @@
+---
+- name: firewalld allow FTP service.
+  firewalld:
+    service: ftp
+    permanent: true
+    state: enabled
+  notify: reload firewalld
+  ignore_errors: True

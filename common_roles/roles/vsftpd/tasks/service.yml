@@ -1,0 +1,5 @@
+---
+- name: enable service vsftpd and run
+  systemd:
+    name: vsftpd
+    enabled: yes

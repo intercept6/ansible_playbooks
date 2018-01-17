@@ -1,6 +1,7 @@
 ---
 ansible_ssh_user: vagrant
-ansible_ssh_private_key_file: ~/.vagrant.d/insecure_private_key
+
+selinux_state: 'disabled'
 
 crowiplus_port: 3000
 crowiplus_node_env: development

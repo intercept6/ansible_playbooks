@@ -1,0 +1,12 @@
+---
+- name: Configure Vsftpd vsftpd.conf
+  template:
+    src: vsftpd.conf.j2
+    dest: /etc/vsftpd/vsftpd.conf
+  notify: restart vsftpd
+
+- name: Configure Vsftpd chroot_list
+  template:
+    src: chroot_list.j2
+    dest: /etc/vsftpd/chroot_list
+  notify: restart vsftpd

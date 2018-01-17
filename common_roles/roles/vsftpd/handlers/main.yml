@@ -1,0 +1,6 @@
+---
+- name: restart vsftpd
+  systemd: name=vsftpd state=restarted
+
+- name: reload firewalld
+  systemd: name=firewalld state=reloaded
