@@ -1,5 +1,5 @@
 ---
-selinux_state: 'enforcing'
+selinux_state: 'permissive'
 # enforcing
 # permissive
 # disabled
