@@ -5,11 +5,21 @@
     - libselinux-python
     - libsemanage-python
 
-- name: change seLinux state
+- name: change selinux state
   selinux:
     policy: targeted
     state: "{{ selinux_state }}"
   register: selinux_result
+
+- name: check autorelabel flag
+  stat: path='/.autorelabel'
+  register: autorelabel_result
+
+- name: relabel a file system flag
+  file:
+    path: /.autorelabel
+    state: touch
+  when: autorelabel_result.stat.exists is defined and not autorelabel_result.stat.exists
 
 - name: Reboot. If SELinux state is changed
   shell: sleep 2 && shutdown -r now "reboot"
