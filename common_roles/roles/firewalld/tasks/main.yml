@@ -1,6 +1,6 @@
 ---
-- name: Disable firewalld
+- name: change firewalld state
   systemd:
     name: firewalld
-    state: stopped
-    enabled: no
+    state: {{  firewalld_state  }}
+    enabled: {{  firewalld_enabled }}
